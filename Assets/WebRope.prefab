@@ -84,7 +84,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.15
+    widthMultiplier: 0.1
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -205,7 +205,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b1d6e2f3129514e819c1ce12148d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfRopeSegments: 50
+  numOfRopeSegments: 35
   ropeSegmentLength: 0.225
   ropeStartPoint: {fileID: 0}
   ropeEndPoint: {fileID: 0}
