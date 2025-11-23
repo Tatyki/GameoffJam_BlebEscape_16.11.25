@@ -21,7 +21,7 @@ public class myha : MonoBehaviour
     private AIPath path;
 
     [Header("Detection")]
-    public float detectionRadius = 2f; 
+    public float detectionRadius = 3.5f; 
     public float checkTime = 2.5f; 
     [Space]
     public LayerMask hitMask;

@@ -5,8 +5,8 @@ using UnityEngine;
 public class RopeVerlet : MonoBehaviour
 {
     [Header("Rope")]
-    [SerializeField] private int numOfRopeSegments = 50;
-    [SerializeField] private float ropeSegmentLength = 0.225f;
+    [SerializeField] private int numOfRopeSegments = 35;
+    [SerializeField] private float ropeSegmentLength = 0.11f;
     [SerializeField] public Transform ropeStartPoint;
     [SerializeField] public Transform ropeEndPoint;
 
@@ -37,7 +37,7 @@ public class RopeVerlet : MonoBehaviour
     public bool releaseWeb;
     public bool endAttached;
     private float currentWidth = 0.05f;
-    private float targetWidth = 0.10f;
+    private float targetWidth = 0.09f;
     public bool isDragging = false;
     public int draggedSegmentIndex = -1;
     public Vector2 dragPosition;
@@ -51,9 +51,9 @@ public class RopeVerlet : MonoBehaviour
         endAttached = true;
         edgeCollider = GetComponent<EdgeCollider2D>();
         lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.startWidth = 0.10f;
-        lineRenderer.endWidth = 0.10f;
-        targetWidth = 0.10f;
+        lineRenderer.startWidth = 0.09f;
+        lineRenderer.endWidth = 0.09f;
+        targetWidth = 0.09f;
         lineRenderer.positionCount = numOfRopeSegments;
         Debug.Log(releaseWeb);
 

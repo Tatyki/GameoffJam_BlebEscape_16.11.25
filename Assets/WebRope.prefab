@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1662093102157781138}
   - component: {fileID: 5177597318966959478}
   - component: {fileID: 5407909226050938994}
-  - component: {fileID: 9165142491452220404}
   - component: {fileID: 6592899794183970059}
   - component: {fileID: 6257633935328467781}
   - component: {fileID: 5153556967096024511}
@@ -182,33 +181,6 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!50 &9165142491452220404
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1478110161538790597}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 1
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
 --- !u!114 &6592899794183970059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numOfRopeSegments: 35
-  ropeSegmentLength: 0.225
+  ropeSegmentLength: 0.11
   ropeStartPoint: {fileID: 0}
   ropeEndPoint: {fileID: 0}
   gravityForce: {x: 0, y: -5}
@@ -249,7 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rope: {fileID: 0}
   pickRadius: 0.3
-  maxStretch: 0.1
+  maxStretch: 0.18
 --- !u!114 &5153556967096024511
 MonoBehaviour:
   m_ObjectHideFlags: 0
