@@ -1,3 +1,4 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class Death : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Myha"))
         {
+            BlebCounter.Instance.RemoveBlob();
             Destroy(this.gameObject);
             Destroy(collision.gameObject);
         }

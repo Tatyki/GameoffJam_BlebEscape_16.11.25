@@ -9,6 +9,7 @@ public class DrawWebUI : MonoBehaviour
     private bool effectTriggered = false;
     public UIButtons thisUIButton;
     private blebLaunch BlebLaunch = null;
+    private Coroutine blebCoroutine = null;
     public enum UIButtons
     {
         BlebLauncher,
@@ -67,7 +68,6 @@ public class DrawWebUI : MonoBehaviour
 
         if (!rope.endAttached)
         {
-            StopCoroutine(BlebLaunch.LaunchBleb());
             return;
         }
 
@@ -75,7 +75,7 @@ public class DrawWebUI : MonoBehaviour
         if (!isAttached && rope.ropeEndPoint == transform)
         {
             isAttached = true;
-
+            rope.WebCleared += ResetState;
             TriggerEffect();
         }
 
@@ -92,7 +92,7 @@ public class DrawWebUI : MonoBehaviour
         // Здесь эффекты
         if (BlebLaunch != null)
         {
-            StartCoroutine(BlebLaunch.LaunchBleb());
+            blebCoroutine = StartCoroutine(BlebLaunch.LaunchBleb());
             StartCoroutine(BlebLaunch.SpawnMyha());
         }
     }
@@ -120,7 +120,13 @@ public class DrawWebUI : MonoBehaviour
             Time.deltaTime * returnSpeed
         );
     }
-
+    
+    private void ResetState()
+    {
+        Debug.Log("СТОПЭ");
+        StopCoroutine(blebCoroutine);
+    }
+        //СТАРОЕ
     //private void ResetState()
     //{
     //    // Мягко возвращаем объект в исходную позицию
