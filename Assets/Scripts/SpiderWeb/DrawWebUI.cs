@@ -7,6 +7,13 @@ public class DrawWebUI : MonoBehaviour
     private RopeVerlet rope;
     private bool isAttached = false;
     private bool effectTriggered = false;
+    public UIButtons thisUIButton;
+    private blebLaunch BlebLaunch = null;
+    public enum UIButtons
+    {
+        BlebLauncher,
+        None
+    }
 
     private Vector3 startPosition;   // исходная точка объекта
 
@@ -18,32 +25,61 @@ public class DrawWebUI : MonoBehaviour
     private void Start()
     {
         startPosition = transform.position;
+        switch (thisUIButton)
+        {
+            case UIButtons.BlebLauncher:
+                BlebLaunch = GetComponent<blebLaunch>();
+                break;
+        }
     }
 
     private void Update()
     {
-        // Узнать активную паутину
-        rope = DragAndDrop.activeSpider != null
-            ? DragAndDrop.activeSpider.activeRope
-            : null;
+        //СТАРОЕ
+        //if (DragAndDrop.activeSpider.activeRope != null)
+        //{
+        //    rope = DragAndDrop.activeSpider.activeRope;
 
-        // Если паутина исчезла или очищается  сразу вернуть объект
-        if (rope.endAttached == false)
+        //    if (rope.endAttached == false)
+        //    {
+        //        return;
+        //    }
+
+        //    // Проверяем прикрепление к ЭТОМУ объекту
+        //    if (!isAttached && rope.endAttached && rope.ropeEndPoint == transform)
+        //    {
+        //        isAttached = true;
+        //        rope.WebCleared += ResetState;
+        //        TriggerEffect();
+        //    }
+
+        //    // Следовать за паутиной
+        //    if (isAttached)
+        //        FollowRope();
+        //}
+        RopeVerlet activeRope = DragAndDrop.activeSpider?.activeRope;
+
+        if (activeRope == null)
+            return;
+
+        rope = activeRope;
+
+
+        if (!rope.endAttached)
         {
-            ResetState();
+            StopCoroutine(BlebLaunch.LaunchBleb());
             return;
         }
 
-        // Проверяем прикрепление к ЭТОМУ объекту
-        if (!isAttached &&
-            rope.endAttached &&
-            rope.ropeEndPoint == transform)
+
+        if (!isAttached && rope.ropeEndPoint == transform)
         {
             isAttached = true;
+
             TriggerEffect();
         }
 
-        // Следовать за паутиной
+
         if (isAttached)
             FollowRope();
     }
@@ -52,13 +88,13 @@ public class DrawWebUI : MonoBehaviour
     {
         if (effectTriggered) return;
         effectTriggered = true;
-
-        Debug.Log("Эффект! Паутина прикрепилась к объекту " + gameObject.name);
-
-        // Здесь ваш эффект
-        // anim.SetTrigger("Activate");
-        // SpawnEnemy();
-        // PlaySound();
+        Debug.Log("ваыф");
+        // Здесь эффекты
+        if (BlebLaunch != null)
+        {
+            StartCoroutine(BlebLaunch.LaunchBleb());
+            StartCoroutine(BlebLaunch.SpawnMyha());
+        }
     }
 
     private void FollowRope()
@@ -85,17 +121,17 @@ public class DrawWebUI : MonoBehaviour
         );
     }
 
-    private void ResetState()
-    {
-        // Мягко возвращаем объект в исходную позицию
-        transform.position = Vector3.Lerp(
-            transform.position,
-            startPosition,
-            Time.deltaTime * returnSpeed
-        );
+    //private void ResetState()
+    //{
+    //    // Мягко возвращаем объект в исходную позицию
+    //    transform.position = Vector3.Lerp(
+    //        transform.position,
+    //        startPosition,
+    //        Time.deltaTime * returnSpeed
+    //    );
 
-        isAttached = false;
-        effectTriggered = false;
-    }
+    //    isAttached = false;
+    //    effectTriggered = false;
+    //}
 }
 

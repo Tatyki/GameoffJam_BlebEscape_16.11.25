@@ -11,7 +11,7 @@ public class DragAndDrop : MonoBehaviour
     public Animator anim;
     public bool isActive;
     public bool canMove = true;
-    public static DragAndDrop activeSpider;
+    public static DragAndDrop activeSpider = null;
     public RopeVerlet activeRope;
 
     private void Start()

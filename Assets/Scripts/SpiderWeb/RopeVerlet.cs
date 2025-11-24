@@ -41,6 +41,7 @@ public class RopeVerlet : MonoBehaviour
     public bool isDragging = false;
     public int draggedSegmentIndex = -1;
     public Vector2 dragPosition;
+    public System.Action WebCleared;
     
     public void ReleaseWeb()
     {
@@ -139,8 +140,10 @@ public class RopeVerlet : MonoBehaviour
     {
         if(releaseWeb)
         {
+
             DragAndDrop.activeSpider.activeRope.endAttached = false;
             DragAndDrop.activeSpider.activeRope.targetWidth = 0f;
+            WebCleared?.Invoke();
             yield return new WaitForSeconds(0.5f);;
             Debug.Log("Web cleared");
             Destroy(DragAndDrop.activeSpider.activeRope.gameObject);
