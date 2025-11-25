@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class blebLaunch : MonoBehaviour
 {
-    public float Timer;
+    public float timerBleb;
+    public float timerMyha;
+
     public GameObject blebPrefab;
     public GameObject myhaPrefab;
     public BlebData blebData;
@@ -16,7 +18,7 @@ public class blebLaunch : MonoBehaviour
         {
             blebData.blebCount--;
             Instantiate(blebPrefab, blebSpawnPoint);
-            yield return new WaitForSeconds(Timer);
+            yield return new WaitForSeconds(timerBleb);
         }
     }
 
@@ -24,8 +26,8 @@ public class blebLaunch : MonoBehaviour
     {
         while (true)
         {
+            yield return new WaitForSeconds(timerMyha);
             Instantiate(myhaPrefab, myhaSpawnPoint);
-            yield return new WaitForSeconds(Timer);
         }
     }
 }
