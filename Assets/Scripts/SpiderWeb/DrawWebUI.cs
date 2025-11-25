@@ -124,7 +124,17 @@ public class DrawWebUI : MonoBehaviour
     private void ResetState()
     {
         Debug.Log("—“Œœ›");
-        StopCoroutine(blebCoroutine);
+        if(blebCoroutine != null )
+        {
+            StopCoroutine(blebCoroutine);
+            blebCoroutine = null;
+        }
+        effectTriggered = false;
+        isAttached = false;
+        if (rope != null)
+        {
+            rope.WebCleared -= ResetState;
+        }
     }
         //—“¿–Œ≈
     //private void ResetState()

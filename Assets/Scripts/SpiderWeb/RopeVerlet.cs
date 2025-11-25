@@ -151,6 +151,20 @@ public class RopeVerlet : MonoBehaviour
         }
     }
 
+    public IEnumerator ClearThisWeb()
+    {
+        if (releaseWeb)
+        {
+
+            endAttached = false;
+            targetWidth = 0f;
+            WebCleared?.Invoke();
+            yield return new WaitForSeconds(0.5f); ;
+            Debug.Log("Web cleared");
+            Destroy(gameObject);
+        }
+    }
+
     private void ApplyConstraints()
     {
 
@@ -200,11 +214,25 @@ public class RopeVerlet : MonoBehaviour
 
         if (attachedBodies.Count > 0)
         {
-            foreach (var ab in attachedBodies)
+            for (int i = attachedBodies.Count - 1; i >= 0; i--)
             {
-                if (ab.rb == null) continue;
+                var ab = attachedBodies[i];
 
-                int seg = ab.nearestSegment;
+                if (ab.rb == null)
+                {
+                    attachedBodies.RemoveAt(i);
+                    continue;
+                }
+
+                int seg = Mathf.Clamp(ab.nearestSegment, 0, ropeSegments.Count - 1);
+                float distance = Vector2.Distance(ropeSegments[seg].CurrentPos, ab.rb.position);
+
+
+                if (distance > 0.7f)
+                {
+                    attachedBodies.RemoveAt(i);
+                    continue;
+                }
 
                 float weight = ab.rb.mass * 0.005f;
 
@@ -231,7 +259,7 @@ public class RopeVerlet : MonoBehaviour
         if (blebCount >= 3 || myhaCount >= 5)
         {
             Debug.Log("Clear web");
-            StartCoroutine(ClearWeb());
+            StartCoroutine(ClearThisWeb());
             return;
         }
     }

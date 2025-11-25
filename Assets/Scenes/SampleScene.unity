@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &7575936 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2681985809831838131, guid: ce744239f81f7254da113a6b744cbe70, type: 3}
+  m_PrefabInstance: {fileID: 919620881100895078}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &156282014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -601,7 +606,6 @@ GameObject:
   - component: {fileID: 469119863}
   - component: {fileID: 469119862}
   - component: {fileID: 469119866}
-  - component: {fileID: 469119867}
   m_Layer: 0
   m_Name: PeriodicObject
   m_TagString: Untagged
@@ -758,18 +762,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &469119867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 469119861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afcdc7581de1a6f4a9612a931a8acc22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &478410995
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,6 +1100,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1202,6 +1195,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blebData: {fileID: 11400000, guid: 3631712bb34d8df4285ba2cb1dd04856, type: 2}
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afcdc7581de1a6f4a9612a931a8acc22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightableObjects:
+  - {fileID: 7575936}
+  - {fileID: 550856295}
+  - {fileID: 1482686552}
+  - {fileID: 943579573}
+--- !u!1 &550856295 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2681985809831838131, guid: ce744239f81f7254da113a6b744cbe70, type: 3}
+  m_PrefabInstance: {fileID: 156282014}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &552203142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1854,7 +1869,6 @@ GameObject:
   - component: {fileID: 943579577}
   - component: {fileID: 943579576}
   - component: {fileID: 943579575}
-  - component: {fileID: 943579574}
   m_Layer: 5
   m_Name: StaticObject (1)
   m_TagString: Untagged
@@ -1862,18 +1876,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &943579574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 943579573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afcdc7581de1a6f4a9612a931a8acc22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &943579575
 Animator:
   serializedVersion: 5
@@ -2757,7 +2759,7 @@ Transform:
   m_GameObject: {fileID: 1330959292}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.54, y: -7.11, z: -0.16530626}
+  m_LocalPosition: {x: -9.94, y: -6.4, z: -0.16530626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3044,6 +3046,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0518017, y: 0.48799324}
   m_EdgeRadius: 0
+--- !u!1 &1482686552 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6722303337443174617, guid: 97b7a5fc13b0d764e95e466c6c4c4605, type: 3}
+  m_PrefabInstance: {fileID: 5968508308734740078}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1535663354
 GameObject:
   m_ObjectHideFlags: 0
@@ -3057,7 +3064,6 @@ GameObject:
   - component: {fileID: 1535663355}
   - component: {fileID: 1535663358}
   - component: {fileID: 1535663359}
-  - component: {fileID: 1535663360}
   m_Layer: 0
   m_Name: ChargedObject
   m_TagString: Untagged
@@ -3214,18 +3220,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1535663360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1535663354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afcdc7581de1a6f4a9612a931a8acc22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1650428992
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,13 +24,13 @@ public class DragAndDrop : MonoBehaviour
     private void Update()
     {
         var hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-        if (hit && hit.collider.gameObject == gameObject)
-        {
-            anim.SetBool("Highlighted", true);
-        } else
-        {
-            anim.SetBool("Highlighted", false);
-        }
+        //if (hit && hit.collider.gameObject == gameObject)
+        //{
+        //    anim.SetBool("Highlighted", true);
+        //} else
+        //{
+        //    anim.SetBool("Highlighted", false);
+        //}
         if (Input.GetMouseButtonDown(1))
         {
             
