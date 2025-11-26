@@ -231,7 +231,7 @@ Transform:
   m_GameObject: {fileID: 182607177}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.42, y: -7.47, z: 0}
+  m_LocalPosition: {x: 7.4, y: -7.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3430,7 +3430,7 @@ Transform:
   m_GameObject: {fileID: 1853383325}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.92, y: -1.5, z: 0}
+  m_LocalPosition: {x: 10.98, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 2.452113}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3478,7 +3478,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -90
   m_Sprite: {fileID: -1296059464, guid: 8bb2425c9b0a35c49b4f6e936c9f0d77, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.42357883, g: 0.74115443, b: 0.7610062, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3692,7 +3692,7 @@ Transform:
   m_GameObject: {fileID: 1975168073}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.42, y: 4.17, z: 0}
+  m_LocalPosition: {x: 0.78, y: 4.17, z: 0}
   m_LocalScale: {x: 0.65967166, y: 0.65967166, z: 0.65967166}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3761,7 +3761,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d215a3666be254a9c552dff1922b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Timer: 5
+  timerBleb: 5
+  timerMyha: 8
   blebPrefab: {fileID: 7060636665999945746, guid: 961e6bfad24806449a73216dd0d4d7c3, type: 3}
   myhaPrefab: {fileID: 1487554830935034069, guid: 805984a4171e2744db122534ee0ac3bb, type: 3}
   blebData: {fileID: 11400000, guid: 3631712bb34d8df4285ba2cb1dd04856, type: 2}
@@ -3940,6 +3941,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6280126389300773244, guid: ce744239f81f7254da113a6b744cbe70, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3959,7 +3964,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1561003045838231122, guid: 97b7a5fc13b0d764e95e466c6c4c4605, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.32
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 1561003045838231122, guid: 97b7a5fc13b0d764e95e466c6c4c4605, type: 3}
       propertyPath: m_LocalPosition.z
