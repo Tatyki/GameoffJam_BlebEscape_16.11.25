@@ -9,10 +9,13 @@ public class DrawWebUI : MonoBehaviour
     private bool effectTriggered = false;
     public UIButtons thisUIButton;
     private blebLaunch BlebLaunch = null;
+    private ExitButton exitButton;
     private Coroutine blebCoroutine = null;
+    private Coroutine exitCoroutine = null;
     public enum UIButtons
     {
         BlebLauncher,
+        ExitButton,
         None
     }
 
@@ -31,33 +34,15 @@ public class DrawWebUI : MonoBehaviour
             case UIButtons.BlebLauncher:
                 BlebLaunch = GetComponent<blebLaunch>();
                 break;
+            case UIButtons.ExitButton:
+                exitButton = GetComponent<ExitButton>();
+                break;
         }
     }
 
     private void Update()
     {
-        //СТАРОЕ
-        //if (DragAndDrop.activeSpider.activeRope != null)
-        //{
-        //    rope = DragAndDrop.activeSpider.activeRope;
 
-        //    if (rope.endAttached == false)
-        //    {
-        //        return;
-        //    }
-
-        //    // Проверяем прикрепление к ЭТОМУ объекту
-        //    if (!isAttached && rope.endAttached && rope.ropeEndPoint == transform)
-        //    {
-        //        isAttached = true;
-        //        rope.WebCleared += ResetState;
-        //        TriggerEffect();
-        //    }
-
-        //    // Следовать за паутиной
-        //    if (isAttached)
-        //        FollowRope();
-        //}
         RopeVerlet activeRope = DragAndDrop.activeSpider?.activeRope;
 
         if (activeRope == null)
@@ -89,11 +74,15 @@ public class DrawWebUI : MonoBehaviour
         if (effectTriggered) return;
         effectTriggered = true;
         Debug.Log("ваыф");
-        // Здесь эффекты
+        // Effect here
         if (BlebLaunch != null)
         {
             blebCoroutine = StartCoroutine(BlebLaunch.LaunchBleb());
             StartCoroutine(BlebLaunch.SpawnMyha());
+        }
+        if (exitButton!= null)
+        {
+            exitCoroutine = StartCoroutine(exitButton.FillSlider());
         }
     }
 
@@ -104,13 +93,13 @@ public class DrawWebUI : MonoBehaviour
         Vector2 endPos = rope.ropeSegments[rope.ropeSegments.Count - 1].CurrentPos;
         Vector2 pull = endPos - (Vector2)startPosition;
 
-        // Смещение — часть натяжения
+
         Vector3 offset = pull * followAmount;
 
-        // ---------- Ограничение радиуса ----------
+
         if (offset.magnitude > maxOffsetDistance)
             offset = offset.normalized * maxOffsetDistance;
-        // ------------------------------------------
+
 
         Vector3 targetPos = startPosition + offset;
 
@@ -124,11 +113,19 @@ public class DrawWebUI : MonoBehaviour
     private void ResetState()
     {
         Debug.Log("СТОПЭ");
-        if(blebCoroutine != null )
+
+        if(blebCoroutine != null)
         {
             StopCoroutine(blebCoroutine);
             blebCoroutine = null;
         }
+        if (exitCoroutine != null)
+        {
+            StopCoroutine(exitCoroutine);
+            StartCoroutine(exitButton.UnfillSlider());
+            exitCoroutine = null;
+        }
+
         effectTriggered = false;
         isAttached = false;
         if (rope != null)

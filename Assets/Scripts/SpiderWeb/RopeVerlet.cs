@@ -47,7 +47,8 @@ public class RopeVerlet : MonoBehaviour
     {
         ropeSegments.Clear();  
         attachedBodies.Clear();
-        
+
+        SoundManager.PlaySound(SoundType.WebShoot);
         releaseWeb = true;
         endAttached = true;
         edgeCollider = GetComponent<EdgeCollider2D>();
@@ -145,7 +146,7 @@ public class RopeVerlet : MonoBehaviour
             DragAndDrop.activeSpider.activeRope.targetWidth = 0f;
             WebCleared?.Invoke();
             yield return new WaitForSeconds(0.5f);;
-            Debug.Log("Web cleared");
+            releaseWeb = false;
             Destroy(DragAndDrop.activeSpider.activeRope.gameObject);
             //DragAndDrop.activeSpider.activeRope = null;
         }
@@ -160,7 +161,7 @@ public class RopeVerlet : MonoBehaviour
             targetWidth = 0f;
             WebCleared?.Invoke();
             yield return new WaitForSeconds(0.5f); ;
-            Debug.Log("Web cleared");
+            releaseWeb = false;
             Destroy(gameObject);
         }
     }

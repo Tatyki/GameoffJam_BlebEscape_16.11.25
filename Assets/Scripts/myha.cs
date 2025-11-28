@@ -114,4 +114,12 @@ public class myha : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
         Gizmos.DrawWireSphere(lastPosition.position, 0.5f);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Death"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

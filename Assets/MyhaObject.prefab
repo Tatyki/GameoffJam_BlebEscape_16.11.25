@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 185665214794861847}
   - component: {fileID: 3508260726847247187}
   - component: {fileID: 4453722568370321807}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MyhaObject
   m_TagString: Myha
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -171,7 +171,7 @@ MonoBehaviour:
   checkTime: 1
   hitMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   lastPosition: {fileID: 0}
 --- !u!114 &185665214794861847
 MonoBehaviour:
