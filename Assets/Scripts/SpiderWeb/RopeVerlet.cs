@@ -146,9 +146,8 @@ public class RopeVerlet : MonoBehaviour
             DragAndDrop.activeSpider.activeRope.targetWidth = 0f;
             WebCleared?.Invoke();
             yield return new WaitForSeconds(0.5f);;
-            releaseWeb = false;
             Destroy(DragAndDrop.activeSpider.activeRope.gameObject);
-            //DragAndDrop.activeSpider.activeRope = null;
+
         }
     }
 
@@ -160,8 +159,7 @@ public class RopeVerlet : MonoBehaviour
             endAttached = false;
             targetWidth = 0f;
             WebCleared?.Invoke();
-            yield return new WaitForSeconds(0.5f); ;
-            releaseWeb = false;
+            yield return new WaitForSeconds(0.5f);
             Destroy(gameObject);
         }
     }
@@ -338,7 +336,7 @@ public class RopeVerlet : MonoBehaviour
             baselinePositions.Add(ropeSegments[i].CurrentPos);
     }
 
-    public void ReleaseDragging()
+    public void ReleaseDragging(Vector3 mouseWorld)
     {
         isDragging = false;
         draggedSegmentIndex = -1;

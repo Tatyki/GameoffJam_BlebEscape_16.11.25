@@ -5,57 +5,37 @@ using UnityEngine;
 public class RopeDragController : MonoBehaviour
 {
     public RopeVerlet rope;
-    public float pickRadius = 0.3f; 
-    public float maxStretch = 2f;
 
+    [Header("Slingshot Settings")]
+    public float pickRadius = 0.3f;     // Радиус выбора сегмента
+    public float maxStretch = 2f;       // Максимальное натяжение
+    public float angleLimit = 65f;      // Максимальный угол вниз (чтобы не уводить под верёвку)
+
+    private Vector2 dragStartPoint;
 
     private void Start()
     {
         rope = GetComponent<RopeVerlet>();
     }
+
     void Update()
     {
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorld.z = 0;
 
         if (Input.GetMouseButtonDown(0))
-        {
             TryPickSegment(mouseWorld);
-        }
 
         if (Input.GetMouseButton(0) && rope.isDragging)
-        {
-            rope.dragPosition = mouseWorld;
-        }
+            UpdateDragging(mouseWorld);
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            rope.isDragging = false;
-            rope.draggedSegmentIndex = -1;
-            rope.ReleaseDragging();
-        }
-
-        if (rope.isDragging)
-        {
-            Vector2 grabbedPos = rope.ropeSegments[rope.draggedSegmentIndex].CurrentPos;
-
-            Vector2 direction = mouseWorld - (Vector3)grabbedPos;
-            float distance = direction.magnitude;
-
-            if (distance > maxStretch)
-            {
-                direction = direction.normalized * maxStretch;
-            }
-
-            Vector2 newPos = grabbedPos + direction;
-
-            if (newPos.y > grabbedPos.y)
-                newPos.y = grabbedPos.y;
-
-            rope.dragPosition = newPos;
-        }
+        if (Input.GetMouseButtonUp(0) && rope.isDragging)
+            ReleaseDragging(mouseWorld);
     }
 
+    // --------------------------
+    //  НАЧАЛО ПЕРЕТАСКИВАНИЯ
+    // --------------------------
     void TryPickSegment(Vector3 mouseWorld)
     {
         float closestDist = pickRadius;
@@ -75,7 +55,53 @@ public class RopeDragController : MonoBehaviour
         {
             rope.isDragging = true;
             rope.draggedSegmentIndex = closestIndex;
+            dragStartPoint = rope.ropeSegments[closestIndex].CurrentPos;
+
             rope.StartDragging(closestIndex);
         }
+    }
+
+
+    // ------------------------
+    //      ПРОЦЕСС ТЯГИ
+    // ------------------------
+    void UpdateDragging(Vector3 mouseWorld)
+    {
+        Vector2 segmentPos = rope.ropeSegments[rope.draggedSegmentIndex].CurrentPos;
+
+        Vector2 rawDirection = mouseWorld - (Vector3)segmentPos;
+
+        // Ограничение угла — не тянем слишком вниз
+        float angle = Vector2.Angle(Vector2.up, -rawDirection);
+
+        if (angle > angleLimit)
+        {
+            rawDirection = Quaternion.Euler(0, 0, angleLimit - angle) * rawDirection;
+        }
+
+        // Ограничение длины
+        if (rawDirection.magnitude > maxStretch)
+            rawDirection = rawDirection.normalized * maxStretch;
+
+        Vector2 newPos = segmentPos + rawDirection;
+
+        rope.dragPosition = newPos;
+    }
+
+
+    // ------------------------
+    //       ОТПУСКАНИЕ
+    // ------------------------
+    void ReleaseDragging(Vector3 mouseWorld)
+    {
+        Vector2 segmentPos = rope.ropeSegments[rope.draggedSegmentIndex].CurrentPos;
+
+        // сила выстрела — от точки сегмента к финальной точке мыши
+        Vector2 force = (segmentPos - (Vector2)mouseWorld) * 2f;
+
+        rope.isDragging = false;
+        rope.ReleaseDragging(force);
+
+        rope.draggedSegmentIndex = -1;
     }
 }

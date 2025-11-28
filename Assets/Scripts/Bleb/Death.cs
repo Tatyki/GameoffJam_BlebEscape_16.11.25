@@ -16,4 +16,14 @@ public class Death : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Death"))
+        {
+            BlebCounter.Instance.RemoveBlob();
+            SoundManager.PlaySound(SoundType.BlebDeath);
+            ManagerOfScenes.TryLoadLoseScene();
+            Destroy(this.gameObject);
+        }
+    }
 }

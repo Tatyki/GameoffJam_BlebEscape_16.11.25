@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1662093102157781138}
   - component: {fileID: 5177597318966959478}
-  - component: {fileID: 5407909226050938994}
+  - component: {fileID: -3570114775233162458}
   - component: {fileID: 6592899794183970059}
   - component: {fileID: 6257633935328467781}
   - component: {fileID: 5153556967096024511}
@@ -140,7 +140,7 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!68 &5407909226050938994
+--- !u!68 &-3570114775233162458
 EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,7 +152,7 @@ EdgeCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -175,8 +175,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.075, y: 0}
-  - {x: 0.075, y: 0}
+  - {x: -0.05, y: 0}
+  - {x: 0.05, y: 0}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   gravityForce: {x: 0, y: -5}
   dampingFactor: 0.8
   launchForceMultiplier: 9
-  numOfConstraintsRuns: 50
+  numOfConstraintsRuns: 35
   minLaunchStretch: 0.1
   releaseWeb: 0
   endAttached: 0
@@ -222,6 +222,7 @@ MonoBehaviour:
   rope: {fileID: 0}
   pickRadius: 0.3
   maxStretch: 0.18
+  angleLimit: 65
 --- !u!114 &5153556967096024511
 MonoBehaviour:
   m_ObjectHideFlags: 0

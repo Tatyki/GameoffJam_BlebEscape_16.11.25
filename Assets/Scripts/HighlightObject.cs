@@ -29,6 +29,18 @@ public class HighlightObject : MonoBehaviour
         currentlyHighlighted = null;
     }
 
+    private int GetObjectIndex(GameObject targetObject)
+    {
+        for (int i = 0; i < highlightableObjects.Length; i++)
+        {
+            if (highlightableObjects[i] == targetObject)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     void Update()
     {
         if (currentlyHighlighted != null)
@@ -59,16 +71,6 @@ public class HighlightObject : MonoBehaviour
         currentlyHighlighted = null;
     }
 
-    private int GetObjectIndex(GameObject targetObject)
-    {
-        for (int i = 0; i < highlightableObjects.Length; i++)
-        {
-            if (highlightableObjects[i] == targetObject)
-            {
-                return i;
-            }
-        }
-        return -1;
-    }
+
 }
 
