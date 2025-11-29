@@ -11,7 +11,7 @@ public class HighlightObject : MonoBehaviour
     private Camera cam;
     private GameObject currentlyHighlighted; // Текущий подсвеченный объект (для оптимизации)
 
-    void Start()
+    void Awake()
     {
         cam = Camera.main;
 
