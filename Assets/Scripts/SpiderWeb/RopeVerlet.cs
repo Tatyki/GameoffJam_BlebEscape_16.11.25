@@ -85,7 +85,11 @@ public class RopeVerlet : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            StartCoroutine(ClearWeb());
+            if (DragAndDrop.activeSpider != null &&
+           DragAndDrop.activeSpider.activeRope == this) // проверка на активного
+            {
+                StartCoroutine(ClearWeb());
+            }
         }
         
     }
@@ -139,28 +143,29 @@ public class RopeVerlet : MonoBehaviour
 
     public IEnumerator ClearWeb()
     {
-        if(releaseWeb)
+        if(DragAndDrop.activeSpider.activeRope.releaseWeb)
         {
 
             DragAndDrop.activeSpider.activeRope.endAttached = false;
             DragAndDrop.activeSpider.activeRope.targetWidth = 0f;
             WebCleared?.Invoke();
-            yield return new WaitForSeconds(0.5f);;
-            Destroy(DragAndDrop.activeSpider.activeRope.gameObject);
+            yield return new WaitForSeconds(0.5f);
+            Destroy(gameObject);
 
         }
     }
 
     public IEnumerator ClearThisWeb()
     {
-        if (releaseWeb)
-        {
+        RopeVerlet rope = this;
 
-            endAttached = false;
-            targetWidth = 0f;
+        if (rope.releaseWeb)
+        {
+            rope.endAttached = false;
+            rope.targetWidth = 0f;
             WebCleared?.Invoke();
             yield return new WaitForSeconds(0.5f);
-            Destroy(gameObject);
+            Destroy(rope.gameObject);
         }
     }
 
