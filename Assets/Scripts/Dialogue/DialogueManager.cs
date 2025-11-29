@@ -124,10 +124,6 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(textImputTime);
         }
         CharacterScript tempSpeaker = GameObject.FindObjectOfType<CharacterScript>();
-        if (tempSpeaker.isTalking)
-        {
-            //SetAnimation("idle"); потом здесь вот будет ненужно
-        }
         yield return null;
     }
 

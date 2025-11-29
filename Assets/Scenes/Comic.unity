@@ -289,12 +289,10 @@ GameObject:
   m_Component:
   - component: {fileID: 336904209}
   - component: {fileID: 336904208}
-  - component: {fileID: 336904210}
-  - component: {fileID: 336904211}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -310,11 +308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca200dccf83105468acfb7058658924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  isTalking: 0
-  canTalk: 0
   knot: Start
-  interactButton: 101
+  smthActive: 0
 --- !u!4 &336904209
 Transform:
   m_ObjectHideFlags: 0
@@ -324,69 +319,13 @@ Transform:
   m_GameObject: {fileID: 336904207}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.93, y: -0.14, z: -0.03244067}
+  m_LocalPosition: {x: -7.89, y: 4.41, z: -0.03244067}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 375240373}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &336904210
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 336904207}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!95 &336904211
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 336904207}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &375240372
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,11 +473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca200dccf83105468acfb7058658924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 524408249}
-  isTalking: 0
-  canTalk: 0
   knot: 
-  interactButton: 0
+  smthActive: 0
 --- !u!4 &524408248
 Transform:
   m_ObjectHideFlags: 0
@@ -943,6 +879,26 @@ PrefabInstance:
       propertyPath: realComic.pages.Array.data[8].sprite
       value: 
       objectReference: {fileID: 1873722913, guid: 26b05a764765c634e81fab9f7756ce4c, type: 3}
+    - target: {fileID: 3777305094338325198, guid: 1e7d31ebdc46de0429f0b382798f3961, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3777305094338325198, guid: 1e7d31ebdc46de0429f0b382798f3961, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c448a35579ff7c647a75e85eefde3732, type: 2}
+    - target: {fileID: 3777305094338325198, guid: 1e7d31ebdc46de0429f0b382798f3961, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3777305094338325198, guid: 1e7d31ebdc46de0429f0b382798f3961, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -8194493207415942676, guid: c448a35579ff7c647a75e85eefde3732, type: 2}
+    - target: {fileID: 3777305094338325198, guid: 1e7d31ebdc46de0429f0b382798f3961, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3996813572044425169, guid: 1e7d31ebdc46de0429f0b382798f3961, type: 3}
       propertyPath: m_IsActive
       value: 0

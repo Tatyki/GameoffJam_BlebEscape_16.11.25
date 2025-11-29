@@ -4,61 +4,24 @@ using UnityEngine;
 
 public class CharacterScript : MonoBehaviour
 {
-    public Animator anim;
-    public bool isTalking;
-    public bool canTalk;
     public string knot;
-    public KeyCode interactButton;
+    // public KeyCode interactButton;
+    public bool smthActive;
     private DialogueManager DialogueManager;
     
     void Start()
     {
-        anim = GetComponent<Animator>();
-        isTalking = false;
         DialogueManager = FindAnyObjectByType<DialogueManager>();
+
+        DialogueManager.StartDialogue(knot);
     }
 
     private void Update()
     {
-        if(canTalk && Input.GetKeyDown(interactButton) && this.gameObject.name != "Player")
+        if(smthActive)
         {
             DialogueManager.StartDialogue(knot);
-            canTalk = false;
         }
     }
-
-    public void PlayAnimation(string _name)
-    {
-        switch (_name)
-        {
-            case "idle":
-                anim.SetTrigger("toIdle");
-                break;
-            case "talk":
-                isTalking = true;
-                anim.SetTrigger("toTalk");
-                break;
-            case "think":
-                anim.SetTrigger("toThink");
-                break;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-       if(collision.tag == "Player")
-        {
-            canTalk = true;
-        } 
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            canTalk = true;
-        }
-    }
-
 
 }
