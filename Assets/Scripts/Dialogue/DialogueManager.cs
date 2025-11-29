@@ -90,7 +90,7 @@ public class DialogueManager : MonoBehaviour
                     Debug.Log(story.currentChoices);
                 }
             }
-            else if(/*!optionPanel.activeInHierarchy ||*/ !story.canContinue) //если история закончилась и учесть, что могут отображаться опции, не скипать диалог 
+            else if(!optionPanel.activeInHierarchy || !story.canContinue) //если история закончилась и учесть, что могут отображаться опции, не скипать диалог 
             {
                 FinishDialogue();
             }

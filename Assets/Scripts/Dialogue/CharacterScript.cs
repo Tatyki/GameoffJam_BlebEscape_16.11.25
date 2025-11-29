@@ -13,7 +13,8 @@ public class CharacterScript : MonoBehaviour
     {
         DialogueManager = FindAnyObjectByType<DialogueManager>();
 
-        DialogueManager.StartDialogue(knot);
+        //DialogueManager.StartDialogue(knot);
+        StartCoroutine(DiaStarter());
     }
 
     private void Update()
@@ -22,6 +23,12 @@ public class CharacterScript : MonoBehaviour
         {
             DialogueManager.StartDialogue(knot);
         }
+    }
+
+    IEnumerator DiaStarter()
+    {
+        yield return new WaitForSeconds(2);
+        DialogueManager.StartDialogue(knot);
     }
 
 }
