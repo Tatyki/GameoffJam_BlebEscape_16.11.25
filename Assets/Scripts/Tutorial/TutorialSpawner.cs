@@ -27,7 +27,7 @@ public class TutorialSpawner : MonoBehaviour
 
     IEnumerator Myha()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
         Instantiate(myhaPrefab, myhaSpawnPoint);
         SoundManager.PlaySound(SoundType.FlySpawn);
         yield return new WaitForSeconds(0.5f);

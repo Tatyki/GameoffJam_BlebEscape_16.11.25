@@ -8,12 +8,26 @@ public class TutorialChecks : MonoBehaviour
     [HideInInspector] public Vector3 lastPos;
     /*[HideInInspector]*/ public float accumulated = 0f;
 
+    bool wasMyhaEverSpawned;
+
     private void Start()
     {
         //var spider = FindAnyObjectByType<DragAndDrop>().gameObject;
         //if (spider != null)
         // lastPos = spider.transform.position;
         lastPos = spider.transform.position;
+    }
+
+    private void Update()
+    {
+        if(!wasMyhaEverSpawned)
+        {
+            var myhas = FindObjectsOfType<myha>();
+            if (myhas != null && myhas.Length != 0)
+            {
+                wasMyhaEverSpawned = true ;
+            }
+        }
     }
 
     //Spider is active?
@@ -98,7 +112,7 @@ public class TutorialChecks : MonoBehaviour
         if (AllmyhaDead) return true;
         var myhas = FindObjectsOfType<myha>();
 
-        if (myhas.Length == 0)
+        if (wasMyhaEverSpawned && myhas.Length == 0)
         {
             AllmyhaDead = true;
             return true;
