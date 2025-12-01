@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5153556967096024511}
   m_Layer: 0
   m_Name: WebRope
-  m_TagString: Untagged
+  m_TagString: Web
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rope: {fileID: 0}
   pickRadius: 0.3
-  maxStretch: 0.18
+  maxStretch: 0.15
   angleLimit: 65
 --- !u!114 &5153556967096024511
 MonoBehaviour:

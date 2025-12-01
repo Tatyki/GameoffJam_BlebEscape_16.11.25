@@ -36,7 +36,7 @@ public class RopeVerlet : MonoBehaviour
 
     public bool releaseWeb;
     public bool endAttached;
-    private float currentWidth = 0.05f;
+    private float currentWidth = 0.09f;
     private float targetWidth = 0.09f;
     public bool isDragging = false;
     public int draggedSegmentIndex = -1;
@@ -263,7 +263,7 @@ public class RopeVerlet : MonoBehaviour
         if (blebCount >= 3 || myhaCount >= 5)
         {
             Debug.Log("Clear web");
-            StartCoroutine(ClearThisWeb());
+            StartCoroutine(ClearWeb());
             return;
         }
     }

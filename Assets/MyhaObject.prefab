@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  reachDistance: 0.5
+  reachDistance: 1
   _path: {fileID: 0}
   detectionRadius: 2.5
   checkTime: 1

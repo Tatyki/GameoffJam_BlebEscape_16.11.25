@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DrawWebUI : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class DrawWebUI : MonoBehaviour
     {
         BlebLauncher,
         ExitButton,
+        PlayButton,
+        CreditsButton,
+        CloseButton,
         None
     }
 
@@ -69,12 +73,23 @@ public class DrawWebUI : MonoBehaviour
             FollowRope();
     }
 
-    private void TriggerEffect()
+    public void TriggerEffect()
     {
         if (effectTriggered) return;
         effectTriggered = true;
-        Debug.Log("ваыф");
         // Effect here
+        switch (thisUIButton)
+        {
+            case UIButtons.PlayButton:
+                StartCoroutine(LoadComic());
+                break;
+            case UIButtons.CreditsButton:
+                StartCoroutine(LoadCredits());
+                break;
+            case UIButtons.CloseButton:
+                StartCoroutine(CloseGame());
+                break;
+        }
         if (BlebLaunch != null)
         {
             blebCoroutine = StartCoroutine(BlebLaunch.LaunchBleb());
@@ -133,18 +148,21 @@ public class DrawWebUI : MonoBehaviour
             rope.WebCleared -= ResetState;
         }
     }
-        //—“ј–ќ≈
-    //private void ResetState()
-    //{
-    //    // ћ€гко возвращаем объект в исходную позицию
-    //    transform.position = Vector3.Lerp(
-    //        transform.position,
-    //        startPosition,
-    //        Time.deltaTime * returnSpeed
-    //    );
 
-    //    isAttached = false;
-    //    effectTriggered = false;
-    //}
+    IEnumerator LoadComic()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("Comic");
+    }
+    IEnumerator LoadCredits()
+    {
+        yield return new WaitForSeconds(0.5f);
+        ManagerOfScenes.TryLoadMainMenu();
+    }
+    IEnumerator CloseGame()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Application.Quit();
+    }
 }
 

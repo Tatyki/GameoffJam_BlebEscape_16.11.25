@@ -10,7 +10,8 @@ public enum SoundType
     BlebSpawn,
     FlySpawn,
     BlebDeath,
-    WebShoot
+    WebShoot,
+    UI,
 }
 [RequireComponent(typeof(AudioSource))]
 public class SoundManager : MonoBehaviour

@@ -11,6 +11,7 @@ public class DragAndDrop : MonoBehaviour
     public Animator anim;
     public bool isActive;
     public bool canMove = true;
+    public bool canShoot = true;
     public static DragAndDrop activeSpider = null;
     public RopeVerlet activeRope;
 
@@ -44,6 +45,7 @@ public class DragAndDrop : MonoBehaviour
         } else if(Input.GetMouseButtonUp(1))
         {
             isDragging = false;
+            activeSpider.rb.isKinematic = true;
         }
 
         if (isDragging && canMove)
@@ -63,7 +65,7 @@ public class DragAndDrop : MonoBehaviour
     }
     public void ShootWeb(Transform startPos,Transform endPos)
     {
-        if (startPos != endPos && activeRope == null)
+        if (startPos != endPos && activeRope == null && canShoot)
         {
             RopeVerlet newRope = Instantiate(ropePrefab);
             newRope.ropeStartPoint = startPos;

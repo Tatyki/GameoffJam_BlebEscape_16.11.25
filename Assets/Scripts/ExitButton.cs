@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class ExitButton : MonoBehaviour
 {
     [Header("UI")]
-    public Slider holdSlider;
-    public CanvasGroup sliderCanvas;
+    public Slider holdSlider = null;
+    public CanvasGroup sliderCanvas = null;
 
     [Header("Settings")]
     public float fillTime = 2f;       
@@ -52,5 +52,10 @@ public class ExitButton : MonoBehaviour
             yield return null;
         }
         StopCoroutine(UnfillSlider());
+    }
+
+    public void ExitToMainMenu()
+    {
+        ManagerOfScenes.TryLoadMainMenu();
     }
 }
