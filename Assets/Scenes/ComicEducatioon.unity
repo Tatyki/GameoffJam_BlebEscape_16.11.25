@@ -1023,6 +1023,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1957137934136659051, guid: 1e7d31ebdc46de0429f0b382798f3961, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c448a35579ff7c647a75e85eefde3732, type: 2}
+    - target: {fileID: 1957137934136659051, guid: 1e7d31ebdc46de0429f0b382798f3961, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2547417071488868144, guid: 1e7d31ebdc46de0429f0b382798f3961, type: 3}
       propertyPath: textMeshPro
       value: 
