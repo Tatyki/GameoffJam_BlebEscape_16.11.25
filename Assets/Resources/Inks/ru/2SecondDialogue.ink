@@ -2,75 +2,74 @@ EXTERNAL Call(objectName, scriptName, methodName, param)
 
 == Start ==
 #name Spider
-Смотри, здесь всё просто
-Чтобы руководить членом великой династии, тебе необходимо сконцентрировать на нём энергию своей мыли и отдать ему свой приказ
+Look, it's simple here
+To command a member of the great dynasty, you need to focus your thought energy on it and give it your order
 . . .
-Не сработало?
-Ладно, тогда наведись на него и сожми аналог пушистого млекопитающего на своём столе
-Я слышал, что другие гики называли это ПКМ
-~ Call ("ComicController", "ComicController", "SetComic", "1")
-Понятия не имею, что это
+No dice?
+Fine, whatever. Point at it and squeeze that fluffy mammal imitation on your desk
+I've heard other geeks call this RMB
+~ Call("ComicController", "ComicController", "SetComic", "1")
+No idea what that is
 -> END
 
 == SpiderActive ==
 #name Spider
-О, а ты неплохо соображаешь
-Как ты видишь, член нашей династии напитался кровью
-Это значит, что он готов к принятию твоего приказа
+Hey, not bad, you're catching on.
+Check it out – our dynasty dude here is all pumped full of juice
+Means he's good to go and take your orders
 ~ Call ("ComicController", "ComicController", "SetComic", "1")
-Наведись на него ещё раз и зажми свою мышь с той же самой стороны и не отпускай её
+Point at him again and keep that same mouse button mashed down. Don't let go
 -> END
 
 == SpiderWasMoved ==
 #name Spider
-Супер
-Теперь давай чуть усложним задачу
-Наведись на вон ту кнопку для пробковой доски сбоку и нажми на свою мышь уже с левой стороны
-~ Call ("ComicController", "ComicController", "SetComic", "1")
-Я хз, где там лево, но короче, бей эту мышь, пока что-то не произойдёт
+Boom. Nailed it
+Now, let's kick it up a notch
+Aim for that corkboard button on the side and this time, slap the left side of your mouse
+~ Call("ComicController", "ComicController", "SetComic", "1")
+Left, right, who cares? Just keep clicking like your life depends on it until stuff happens
 -> END
 
 == WebIsActive ==
 #name Spider
-Если ты подумал о чём-то неприличном, это на твоей совести
-Только не спрашивай откуда оно выходит
-В любом случае попробуй сейчас потянуть за это белое соединение и отпустить его
-~ Call ("TutorialSpawner", "TutorialSpawner", "SpawnBleb", "1")
-Запусти нашего Блёба вон в ту дырку
-~ Call ("ComicController", "ComicController", "SetComic", "1")
-Думай о рогатке 
-Эта штука -- твоя рогатка
+If your mind went to the gutter, that's a you problem
+And don't even ask where this thing comes from
+Anyway, just give this white string a yank and let it fly
+~ Call("TutorialSpawner", "TutorialSpawner", "SpawnBleb", "1")
+Chuck our little Bleb pal right into that hole over there
+~ Call("ComicController", "ComicController", "SetComic", "1")
+Think slingshot. This here's your ghetto-rigged slingshot. Make it work
 -> END
 
 == BlebInSafe ==
 #name Spider
-Так держать
-Сейчас это пока только тренировка, но в будущем это станет твоей основной задачей
-~ Call ("ComicController", "ComicController", "SetComic", "1")
-Теперь вдарь как можно сильнее по самой большой кнопке у себя на клавиатуре и разорви это соединение
+Nice one. You're getting the hang of it
+Right now, it's just practice, but soon this is gonna be your whole job
+~ Call("ComicController", "ComicController", "SetComic", "1")
+Now, smash the biggest, baddest key on your keyboard like you mean it and snap this thread
 -> END
 
 == WebWasDestroyed ==
 #name Spider
-Тсссс . . . ты слышал?
-Видишь эту дырку слева?
-Предупреждать о своём появлении они в будущем тебя и не подумают
-Но в этот раз сделаем исключение
-~ Call ("ComicController", "ComicController", "SetComic", "1")
-Через несколько секунд в эту зону прибудут агенты Мушек
-~ Call ("TutorialSpawner", "TutorialSpawner", "SpawnMyha", "1")
-Если рядом с ними нет Блёбов, можешь просто игнорировать их, но не дай им добраться до самого ценного
+Shhh . . . you hear that?
+See that creepy hole on the left?
+Yeah, the Flies don't exactly RSVP for their surprise visits
+But this once, we got a heads-up
+~ Call("ComicController", "ComicController", "SetComic", "1")
+Any second now, Fly goons are gonna drop into this zone
+~ Call("TutorialSpawner", "TutorialSpawner", "SpawnMyha", "1")
+If no Blobs are around, you can just ignore the buggers. But don't you dare let 'em near the prize
 -> END
 
 == FliesAreGone ==
 #name Spider
-Теперь дело за тобой
-Чтобы выпустить Блёбов создай соединение с круглым значком Блёба
-Только не выпускай за раз слишком много -- Блёбы слишком сильно любят прыгать на паутине и мурчать
-Их мурчание вредит целостности соединения
-Один Блёб не сможет порвать её, но вот несколько одновременно да
-Помни, твоя задача вывести Блёбов в целости и сохранности
-Наша нация полагается на тебя
+Alright, champ. The ball's in your court now
+To get the Blobs moving, hook a line up to the Blob icon
+Just don't go wild and release a whole bunch at once – these little guys are way too hyped about jumping and purring on webs
+All that purring junk stresses the line out
+One Blob? No biggie. A whole squad of 'em? That'll snap it for sure
+Remember the gig: get our Blobs out in one piece
+The whole crew's riding on you. Don't screw it up
 -> ToSecondLevelScene
 
 == ToSecondLevelScene ==

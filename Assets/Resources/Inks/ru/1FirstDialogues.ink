@@ -2,12 +2,11 @@ EXTERNAL Call(objectName, scriptName, methodName, param)
 
 == Start ==
 #name Spider
-Эй, ты
-Да, ты
-Я чувствую запах настоящего гика
-Наконец-то ты здесь
-Мы уже подсуетились и собрали всё необходимое
-Ты же уже в курсе происходящего?
+Hey you
+Yeah, you, geek-scent deluxe
+Took you long enough to show up
+We’ve been grinding here, setting up all the crap you’re gonna need
+You do know what’s happening, right? …Right?
 -> My_Choices
 
 == My_Choices ==
@@ -18,63 +17,64 @@ EXTERNAL Call(objectName, scriptName, methodName, param)
 
 == Play ==
 #name Spider
-Если ты думал, что это кнопка для выхода, у меня для тебя плохие новости
-Если же нет, я понял тебя, рандомный интернет исследователь
-Иди же и спаси наш народ Блёбов от истребления
+If you thought this was the exit button, buddy, I’ve got some tragic news for you
+If you didn’t - cool, got you, random internet wanderer
+Now off you go: save the Bleb Nation from getting wiped off the face of existence
+And hey, don’t forget: 
 #anim BackGround_DisappearBackgroundAnim
-Помни, наша нация рассчитывает на тебя
+Our whole nation’s riding on your shaky shoulders
 -> ToSecondLevelScene
 
 == Lore ==
 #name Spider
-Так, слушай внимательно: повторять я не буду
-Сейчас я расскажу тебе одну абсолютно правдивую историю о величайшей династии пауков, существовавшей здесь не одно десятилетие
-Ты же слушаешь, да?
-Помимо призыва гиковских духов мы умеем ещё делать и заговор на понос
-Что? Почему у пауков из коробки больше власти, чем у тебя?
-А вот мать свою слушать больше надо было
-Ещё скажи, что яблоко, два года назад забытое тобой в контейнере, всё ещё там
-Ладно, речь сейчас о делах намного более важных
-Важнее нас с тобой
+Alright, listen closely: I’m not repeating myself
+I’m about to drop the one and only TRUE story of the greatest spider dynasty that’s been running this place for decades
+You are listening, right?
+On top of summoning geek spirits, we can also brew up curses that’ll have you hunting for a bathroom like your life depends on it
+What? Why do box spiders have more authority than you?
+Should’ve listened to your mom more - think about
+Oh yeah, go on, try saying that the apple you ditched in the container is still in there
+Anyway, we’ve got way more important stuff going down right now
+More important than you and me
 #anim BackGround_DisappearBackgroundAnim
-А дело вот какое было:
-Для первых завоевателей эта земля была райским оазисом
+And here’s how it all went down:
+For the first conquerors, this land was a paradise oasis
 #anim ComicImage_ImageAppearAnim
 ~ Call ("ComicController", "ComicController", "SetComic", "1")
-Из великих подпольных казюлей, съедобных остатков и кристаллов урановой глины из кошачьего наполнителя
-Наши учёные создали своё лучшее детище
+From the majestic depths of basement funk, leftover munchies and those uranium-vibe crystals scavenged from cat litter,
+our scientists finally cooked up their most peak-performance baby
 ~ Call ("ComicController", "ComicController", "SetComic", "1")
-Совершенное
-Инновационное
-Тупейшее
-Или же просто идеальное
-И имя ему было . . .
+Perfect
+Innovative
+Dumb as a brick
+Or, well, simply flawless
+And its name was . . .
 ~ Call ("ComicController", "ComicController", "SetComic", "1")
-БЛЁБ
+BLEB
 ~ Call ("ComicController", "ComicController", "SetComic", "1")
-Ну и жили мы так спокойно долгое время
-Вернее сказать, до прошлой недели, пока в доме не появилось оно
+And, well, we lived like this peacefully for a long time.
+Or rather, until last week, when it appeared in the house
 ~ Call ("ComicController", "ComicController", "SetComic", "1")
-Смердящее чудовище
+A stinky monster
 ~ Call ("ComicController", "ComicController", "SetComic", "1")
-Правды ради, таким оно оставалось не долго
-Но и после того лучше не стало
+For the record, it didn’t stay like that for long
+But honestly, it didn’t get any better after that either
 ~ Call ("ComicController", "ComicController", "SetComic", "1")
-Своей смертью оно породило адских созданий
-Для простоты называем их Мушками
-Но не дай им себя так просто обмануть
+Its own death gave rise to hellish creatures
+For simplicity, we call them The Flies
+But don't let them fool you so easily
 ~ Call ("ComicController", "ComicController", "SetComic", "1")
-Эти исчадия чьего-то больного сознания за время своего недолгого существования успели построить свой фашистский режим и устроить холокост нашим блёбам
-Видите ли народность не может строиться на тупости
+These fiends of someone's sick mind, in their brief existence, managed to build their fascist regime and arrange a genocide for our blebs.
+"A nationality cannot be built on stupidity"
+What nonsense
 ~ Call ("ComicController", "ComicController", "SetComic", "1")
-Тем не менее, нам удалось сохранить малую часть выживших во временном убежище
-Но нам следует поспешить
-Слухи в нашем обществе распространяются очень быстро
-Сейчас ты -- надежда всей нашей нации
-Доведи выживших до бункера, где им ничто не сможет угрожать 
-Если сможешь, получишь благодарность великой династии
-#anim ComicImage_ImageDisappearAnim
-Не подведи наш народ
+Nevertheless, we managed to preserve a small number of survivors in a temporal refuge
+But we must hurry
+Rumors in our society spread very fast
+Now you are the hope of our entire nation
+Lead the survivors to the bunker, where nothing can threaten them
+If you succeed, you will receive the gratitude of the great dynasty
+Do not fail our nation
 ~ Call ("ComicController", "ComicController", "SetComic", "1")
 -> ToEducationScene
 
