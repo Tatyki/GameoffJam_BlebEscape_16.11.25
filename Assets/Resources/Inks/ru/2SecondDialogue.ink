@@ -35,7 +35,7 @@ EXTERNAL Call(objectName, scriptName, methodName, param)
 Если ты подумал о чём-то неприличном, это на твоей совести
 Только не спрашивай откуда оно выходит
 В любом случае попробуй сейчас потянуть за это белое соединение и отпустить его
-~ Call ("CheckObject", "TutorialSpawner", "SpawnBleb", "1")
+~ Call ("TutorialSpawner", "TutorialSpawner", "SpawnBleb", "1")
 Запусти нашего Блёба вон в ту дырку
 ~ Call ("ComicController", "ComicController", "SetComic", "1")
 Думай о рогатке 
@@ -58,7 +58,7 @@ EXTERNAL Call(objectName, scriptName, methodName, param)
 Но в этот раз сделаем исключение
 ~ Call ("ComicController", "ComicController", "SetComic", "1")
 Через несколько секунд в эту зону прибудут агенты Мушек
-~ Call ("CheckObject", "TutorialSpawner", "SpawnMyha", "1")
+~ Call ("TutorialSpawner", "TutorialSpawner", "SpawnMyha", "1")
 Если рядом с ними нет Блёбов, можешь просто игнорировать их, но не дай им добраться до самого ценного
 -> END
 

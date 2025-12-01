@@ -42,6 +42,10 @@ public class RopeVerlet : MonoBehaviour
     public int draggedSegmentIndex = -1;
     public Vector2 dragPosition;
     public System.Action WebCleared;
+
+
+    [Header("Check for Dialogue")]
+    public bool dialogueIsActive;
     
     public void ReleaseWeb()
     {
@@ -83,7 +87,7 @@ public class RopeVerlet : MonoBehaviour
             lineRenderer.endWidth = currentWidth;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !dialogueIsActive)
         {
             if (DragAndDrop.activeSpider != null &&
            DragAndDrop.activeSpider.activeRope == this) // проверка на активного

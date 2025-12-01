@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class TutorialChecks : MonoBehaviour
 {
+    public GameObject spider;
+    [HideInInspector] public Vector3 lastPos;
+    /*[HideInInspector]*/ public float accumulated = 0f;
+
+    private void Start()
+    {
+        //var spider = FindAnyObjectByType<DragAndDrop>().gameObject;
+        //if (spider != null)
+        // lastPos = spider.transform.position;
+        lastPos = spider.transform.position;
+    }
+
     //Spider is active?
     public bool isSpiderActive()
     {
@@ -15,20 +27,28 @@ public class TutorialChecks : MonoBehaviour
         return spiderIsActive;
     }
 
-    [HideInInspector]public Vector3 lastPos;
-    [HideInInspector]public float accumulated = 0f;
-    //Spider is Moving?
+
     public bool isSpiderMoved()
     {
         var spider = DragAndDrop.activeSpider;
-        if (spider == null) { accumulated = 0f; return false; }
+        if (spider == null)
+        {
+            accumulated = 0f;
+            return false;
+        }
 
-        if (lastPos == Vector3.zero) { lastPos = spider.transform.position; return false; }
+        // рассто€ние от предыдущей позиции
+        accumulated = Vector3.Distance(spider.transform.position, lastPos);
 
-        accumulated += Vector3.Distance(spider.transform.position, lastPos);
-        lastPos = spider.transform.position;
+        // обновл€ем lastPos
+        //lastPos = spider.transform.position;
 
-        if (accumulated >= 1.5f) { accumulated = 0f; return true; }
+        if (accumulated >= 3f)
+        {
+            //accumulated = 0f;
+            return true;
+        }
+
         return false;
     }
 
@@ -48,7 +68,7 @@ public class TutorialChecks : MonoBehaviour
 
     public BlebInBunker blebInBunker;
     //Bleb is Saved?
-    private bool isBlebSaved()
+    public bool isBlebSaved()
     {
         if(blebInBunker.blebInBunkerCount >= 1f)
         {

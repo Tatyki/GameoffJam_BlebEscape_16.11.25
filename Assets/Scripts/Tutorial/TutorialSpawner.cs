@@ -9,6 +9,8 @@ public class TutorialSpawner : MonoBehaviour
     [SerializeField] GameObject myhaPrefab;
     [SerializeField] GameObject blebPrefab;
 
+    public RopeVerlet webPrefab;
+
     public void SpawnBleb(int a)
     {
         Instantiate(blebPrefab, BlebSpawnPoint);
@@ -39,17 +41,29 @@ public class TutorialSpawner : MonoBehaviour
 
     public void FreezePlayer(int a)
     {
-        DragAndDrop.activeSpider.canMove = false;
-        DragAndDrop.activeSpider.canShoot = false;
+        webPrefab = FindAnyObjectByType<RopeVerlet>();
+        if (webPrefab != null) webPrefab.dialogueIsActive = true;
+        //webPrefab.dialogueIsActive = true;
+        if (DragAndDrop.activeSpider != null) DragAndDrop.activeSpider.canMove = false;
+        if (DragAndDrop.activeSpider != null) DragAndDrop.activeSpider.canShoot = false;
         // UNeble the possability to move Spider or Make a web while dialogue is active - we CAN NOT move
         Debug.Log("Freezed"); // true
     }
 
     public void UnfreezePlayer(int a)
     {
-        DragAndDrop.activeSpider.canMove = true;
-        DragAndDrop.activeSpider.canShoot = true;
+        StartCoroutine(UntilWebCanBeDeleted());
+        if (DragAndDrop.activeSpider != null) DragAndDrop.activeSpider.canMove = true;
+        if (DragAndDrop.activeSpider != null) DragAndDrop.activeSpider.canShoot = true;
+        //webPrefab.dialogueIsActive = true;
         // ANeble the possability to move Spider or Make a web while dialogue isnt active - we CAN move now
         Debug.Log("UNfreezed"); // true
     }
+
+    IEnumerator UntilWebCanBeDeleted()
+    {
+        yield return new WaitForEndOfFrame();
+        webPrefab = FindAnyObjectByType<RopeVerlet>();
+        if (webPrefab != null) webPrefab.dialogueIsActive = false;
+    }    
 }

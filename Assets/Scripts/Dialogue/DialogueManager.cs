@@ -10,9 +10,10 @@ public class DialogueManager : MonoBehaviour
 {
     [Header("Spesific")]
     public float textImputTime = 0.1f;
-    [Header("Tutorial")]
-    public ComicController comicController;
-    public TutorialSpawner tutorialSpawner;
+
+     ComicController comicController;
+     TutorialSpawner tutorialSpawner;
+
     [Header ("Main")]
     public TextAsset inkFile;
     public GameObject textBox;
