@@ -8,7 +8,7 @@ using System.Reflection;
 
 public class ComicController : MonoBehaviour
 {
-    public ComicClass realComic;    
+    public ComicClass realComic;
     static ComicClass comics;
 
     //Pages[] currentPages;
@@ -16,7 +16,7 @@ public class ComicController : MonoBehaviour
     public Image realImage;
     static Image image;
 
-    //public TextMeshProUGUI textMeshPro;
+    public TextMeshProUGUI textMeshPro;
 
     static int pagesIndex;
     bool once;
@@ -30,12 +30,12 @@ public class ComicController : MonoBehaviour
         image = realImage;
         comics = realComic;
 
-        pagesIndex = 0; 
+        pagesIndex = 0;
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             //pagesIndex ++;
             //SetComic(1);
@@ -46,11 +46,11 @@ public class ComicController : MonoBehaviour
     {
         if (pagesIndex != realComic.pages.Length)
         {
-            //textMeshPro.text = comics.pages[pagesIndex].imageText;
-            realImage.sprite = comics.pages[pagesIndex].sprite;
+            if (textMeshPro != null) textMeshPro.text = comics.pages[pagesIndex].imageText;
+            if (realImage != null) realImage.sprite = comics.pages[pagesIndex].sprite;
             pagesIndex += index;
         }
-        else if(!once)
+        else if (!once)
         {
             once = true;
             pagesIndex = 0;

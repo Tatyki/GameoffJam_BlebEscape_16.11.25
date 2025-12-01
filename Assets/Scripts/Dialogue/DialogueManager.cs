@@ -10,6 +10,9 @@ public class DialogueManager : MonoBehaviour
 {
     [Header("Spesific")]
     public float textImputTime = 0.1f;
+    [Header("Tutorial")]
+    public ComicController comicController;
+    public TutorialSpawner tutorialSpawner;
     [Header ("Main")]
     public TextAsset inkFile;
     public GameObject textBox;
@@ -18,6 +21,7 @@ public class DialogueManager : MonoBehaviour
     public bool isTalking = false;
     public bool dialogueHasStarted = false;
     public KeyCode nextButton;
+
 
     static Story story;
     TextMeshProUGUI nametag;
@@ -33,6 +37,14 @@ public class DialogueManager : MonoBehaviour
         message = textBox.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         tags = new List<string>();
         choiceSelected = null;
+
+        comicController = FindAnyObjectByType<ComicController>();
+        tutorialSpawner = FindAnyObjectByType<TutorialSpawner>();
+        if (comicController != null)
+        {
+            if (comicController.textMeshPro != null) comicController.textMeshPro.text = "";
+        }
+        
 
 
 
@@ -64,6 +76,12 @@ public class DialogueManager : MonoBehaviour
             story.ChoosePathString(knotName); //если кнота не находит ничего не стартует закомменчено для тестирования
             textBox.SetActive(true);
             AdvanceDialogue();
+
+            if (tutorialSpawner != null) tutorialSpawner.FreezePlayer(1);
+            if (comicController != null)
+            {
+                if (comicController.textMeshPro != null) comicController.textMeshPro.text = "";
+            }
         }
         catch (System.Exception e)
         {
@@ -103,6 +121,7 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("End of Dialogue!");
         dialogueHasStarted = false;
         textBox.SetActive(false);
+        if (tutorialSpawner != null) tutorialSpawner.UnfreezePlayer(1);
     }
 
     // Advance through the story 

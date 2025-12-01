@@ -981,7 +981,7 @@ PrefabInstance:
     - target: {fileID: 5035218957963335896, guid: 1e7d31ebdc46de0429f0b382798f3961, type: 3}
       propertyPath: inkFile
       value: 
-      objectReference: {fileID: 4900000, guid: 8078b016c39bf634eb252a3dc7603448, type: 3}
+      objectReference: {fileID: 4900000, guid: 7bee3709615b62840ad62aba17a4790c, type: 3}
     - target: {fileID: 5035218957963335896, guid: 1e7d31ebdc46de0429f0b382798f3961, type: 3}
       propertyPath: optionPanel
       value: 
