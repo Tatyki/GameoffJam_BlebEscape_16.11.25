@@ -71,5 +71,8 @@ EXTERNAL Call(objectName, scriptName, methodName, param)
 Один Блёб не сможет порвать её, но вот несколько одновременно да
 Помни, твоя задача вывести Блёбов в целости и сохранности
 Наша нация полагается на тебя
--> END
+-> ChangeScene
 
+== ToSecondLevelScene ==
+~ Call ("SceneChanger", "DiaSceneChanger", "StartSecondLevel", "1")
+-> END

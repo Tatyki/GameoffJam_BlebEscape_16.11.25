@@ -21,8 +21,9 @@ EXTERNAL Call(objectName, scriptName, methodName, param)
 Если ты думал, что это кнопка для выхода, у меня для тебя плохие новости
 Если же нет, я понял тебя, рандомный интернет исследователь
 Иди же и спаси наш народ Блёбов от истребления
+#anim BackGround_DisappearBackgroundAnim
 Помни, наша нация рассчитывает на тебя
--> END
+-> ToSecondLevelScene
 
 == Lore ==
 #name Spider
@@ -75,10 +76,13 @@ EXTERNAL Call(objectName, scriptName, methodName, param)
 #anim ComicImage_ImageDisappearAnim
 Не подведи наш народ
 ~ Call ("ComicController", "ComicController", "SetComic", "1")
+-> ToEducationScene
+
+
+== ToEducationScene ==
+~ Call ("SceneChanger", "DiaSceneChanger", "StartEducationComic", "1")
 -> END
 
-
-== What ==
-#talker Player
-Еще раз
- -> My_Choices
+== ToSecondLevelScene ==
+~ Call ("SceneChanger", "DiaSceneChanger", "StartSecondLevel", "1")
+-> END

@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ffffffffffff
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c448a35579ff7c647a75e85eefde3732, type: 2}
   m_sharedMaterial: {fileID: -8194493207415942676, guid: c448a35579ff7c647a75e85eefde3732, type: 2}
@@ -598,8 +598,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textImputTime: 0.02
-  comicController: {fileID: 0}
-  tutorialSpawner: {fileID: 0}
   inkFile: {fileID: 4900000, guid: 4493fa9ba9b688842a6c44f6154bfc77, type: 3}
   textBox: {fileID: 3996813572044425169}
   customButton: {fileID: 6773197745401585261, guid: e16f8261a9f482342a793634908b866e, type: 3}
