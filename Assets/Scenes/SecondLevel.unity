@@ -2889,10 +2889,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerBleb: 5
-  timerMyha: 8
+  timerMyha: 10
   blebPrefab: {fileID: 7060636665999945746, guid: 961e6bfad24806449a73216dd0d4d7c3, type: 3}
   myhaPrefab: {fileID: 1487554830935034069, guid: 805984a4171e2744db122534ee0ac3bb, type: 3}
   blebData: {fileID: 11400000, guid: 3631712bb34d8df4285ba2cb1dd04856, type: 2}
+  blebLeft: 0
   blebSpawnPoint: {fileID: 1680123300}
   myhaSpawnPoint: {fileID: 1330959293}
 --- !u!1 &1983337417

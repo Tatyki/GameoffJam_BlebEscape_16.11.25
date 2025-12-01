@@ -5028,7 +5028,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1437d948735d2443b8771af018f36fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ps: {fileID: 682015188350587850}
-  burstCount: 5
-  continuousRate: 5
-  webTag: Web
+  particles: {fileID: 682015188350587850}
+  burstInterval: 3
+  OnWeb: 0

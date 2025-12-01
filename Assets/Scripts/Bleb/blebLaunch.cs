@@ -10,7 +10,7 @@ public class blebLaunch : MonoBehaviour
     public GameObject blebPrefab;
     public GameObject myhaPrefab;
     public BlebData blebData;
-    private int blebLeft;
+    public int blebLeft;
     public Transform blebSpawnPoint;
     public Transform myhaSpawnPoint;
 

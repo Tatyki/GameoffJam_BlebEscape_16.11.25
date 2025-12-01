@@ -23,4 +23,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CreditsScene.unity
     guid: 5a754794dbe5b5342817414c13696f89
+  - enabled: 1
+    path: Assets/Scenes/ThirdLevel.unity
+    guid: 6e7a8c5ce64adce4da688e82df169377
+  - enabled: 1
+    path: Assets/Scenes/FourthLevel.unity
+    guid: 49dea9142582bea44abdbf4c05274465
+  - enabled: 1
+    path: Assets/Scenes/ComicEducatioon.unity
+    guid: c6032cf854b9d4a45a2637e907744ae8
   m_configObjects: {}

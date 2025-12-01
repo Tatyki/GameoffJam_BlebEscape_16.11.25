@@ -6,7 +6,7 @@ public class LoadSecondLevel : MonoBehaviour
 {
     public BlebData blebData;
     public BlebInBunker inBunker;
-    void Start()
+    void Awake()
     {
         blebData.blebCount = 5;
         inBunker.blebInBunkerCount = 0;

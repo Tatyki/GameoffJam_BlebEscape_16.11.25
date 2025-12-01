@@ -254,10 +254,14 @@ public class RopeVerlet : MonoBehaviour
             if (ab.rb == null) continue;
 
             if (ab.rb.CompareTag("bleb"))
+            {
                 blebCount++;
+            }
 
             if (ab.rb.CompareTag("Myha"))
+            {
                 myhaCount++;
+            }
         }
 
         if (blebCount >= 3 || myhaCount >= 5)
@@ -300,7 +304,16 @@ public class RopeVerlet : MonoBehaviour
             nearestSegment = nearest
         });
 
-        
+        if (rb.CompareTag("bleb"))
+        {
+            var blebParticles = rb.GetComponent<BlebParticleSystem>();
+            if (blebParticles != null)
+            {
+                blebParticles.SetOnWeb(true);
+            }
+        }
+
+
     }
 
     public void LaunchAllAttached()
@@ -325,6 +338,18 @@ public class RopeVerlet : MonoBehaviour
 
             ab.rb.velocity = Vector2.zero; 
             ab.rb.AddForce(force, ForceMode2D.Impulse);
+        }
+
+        foreach (var ab in attachedBodies)
+        {
+            if (ab.rb == null) continue;
+
+            if (ab.rb.CompareTag("bleb"))
+            {
+                var particles = ab.rb.GetComponent<BlebParticleSystem>();
+                if (particles != null)
+                    particles.SetOnWeb(false);
+            }
         }
 
         attachedBodies.Clear();
